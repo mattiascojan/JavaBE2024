@@ -38,6 +38,13 @@ public class geometriaTester {
 		Rettangolo ret1=new Rettangolo(ab, bc);
 		System.out.println("Il perimetro del rettangolo: "+ret1.getPerimetro());
 		System.out.println("L'area del rettangolo: "+ret1.getArea());
+
+		//creo un quadrato, mi serve solo un lato
+		Quadrato quad1=new Quadrato(ab);
+		System.out.println("L'area del quadrato vale:"+quad1.getArea());
+		System.out.println("Il perimetro del quadrato vale: "+quad1.getPerimetro());
+		System.out.println(quad1.toString());
+		//ERIDETARIETA'
 		
 	}
 
