@@ -1,0 +1,13 @@
+package com.cojanfabio;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ProgettoQuizApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProgettoQuizApplication.class, args);
+	}
+
+}

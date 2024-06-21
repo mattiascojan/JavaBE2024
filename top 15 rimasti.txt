@@ -1,0 +1,44 @@
+create table if not exists utenti(
+	id int auto_increment primary key,
+    username varchar(21) unique not null,
+    email varchar(60) unique not null,
+    passwordd varchar(60)
+);
+-- --------------------------------------------
+create table if not exists playlists(
+	id int auto_increment primary key,
+    nome varchar(30),
+    utente_id int,
+    constraint fk_playlist_utenti foreign key (utente_id) references utenti(id)
+);
+-- ------------------------------------------
+create table if not exists artisti(
+	id int auto_increment primary key,
+    nome_artista varchar(30)
+);
+-- ------------------------------------------
+create table if not exists albums(
+	id int auto_increment primary key,
+    data_pubblicazione date,
+    artista_id int,
+    constraint fk_palbums_artisti foreign key (artista_id) references artisti(id)
+);
+-- ------------------------------------------
+create table if not exists brani(
+	id int auto_increment primary key,
+    titolo varchar(30),
+    data_pubblicazione date,
+    durata time,
+    album_id int,
+    artista_id int,
+    constraint fk_brani_albums foreign key (album_id) references albums(id),
+    constraint fk_brani_artisti foreign key (artista_id) references artisti(id)
+);    
+-- -----------------------------------------
+create table if not exists playlistBrano(
+	id int auto_increment primary key,
+	brano_id int,
+    playlist_id int,
+    constraint fk_playlistBrano_playlists foreign key (playlist_id) references playlists(id),
+    constraint fk_playlistBrano_brani foreign key (brano_id) references brani(id)
+);
